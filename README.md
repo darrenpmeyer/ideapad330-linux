@@ -33,3 +33,15 @@ sudo dpkg -i linux-image-4.18.0-rc3-custom_4.18.0-rc3-custom-1_amd64.deb
 ```
 
 After rebooting, the on-board touchpad should function.
+
+### YubiKey U2F support
+
+`udev` rules need to be added for U2F support (**Note:** U2F support is only guaranteed to work in the Google Chrome browser. I've had luck with some builds of Chromium, but there's not guarantee.)
+
+```
+wget -nd https://github.com/Yubico/libu2f-host/raw/master/70-u2f.rules
+sudo mv 70-u2f.rules /etc/udev/rules.d/
+```
+
+Depending on your configuration, a reboot may be required
+
